@@ -58,10 +58,11 @@ export const Profile = () => {
             {!isDesktopOrLaptop && <ThemeSwitcher />}
           </div>
 
-          <p className="mt-2 text-start text-sm text-muted-foreground">
-            I am a software engineer with a passion for building products that
-            help people live better lives.
+          <p className="mt-2 text-start text-sm text-muted-foreground italic">
+            &quot;It doesn&apos;t matter who I am; what truly matters is what I
+            can do for you.&quot;
           </p>
+          <p className="mt-2 text-start text-sm text-muted-foreground"></p>
           <Button className="mt-4 w-full" asChild>
             {/* TODO: Add resume */}
             {/* TODO: Add link to schedule a call with you using Calendly or Cal */}
