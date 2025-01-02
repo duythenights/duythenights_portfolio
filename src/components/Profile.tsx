@@ -13,17 +13,17 @@ import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 const socials = [
   {
     name: "Github",
-    link: "https://github.com/achris-alonzo30",
+    link: "https://github.com/duythenights",
     icon: <FaGithub className="size-4" />,
   },
   {
     name: "LinkedIn",
-    link: "https://linkedin.com/in/lonzochris",
+    link: "https://linkedin.com/in/duythenights",
     icon: <FaLinkedin className="size-4" />,
   },
   {
     name: "X (Twitter)",
-    link: "https://x.com/lonz_chris",
+    link: "https://x.com/duythenights",
     icon: <FaXTwitter className="size-4" />,
   },
   // TODO: Add more socials here
