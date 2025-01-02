@@ -60,7 +60,7 @@ export const Profile = () => {
 
           <p className="mt-2 text-start text-sm text-muted-foreground italic">
             &quot;It doesn&apos;t matter who I am; what truly matters is what I
-            can do for you.&quot;
+            can do for you.&quot;<br></br>_duythenights
           </p>
           <p className="mt-2 text-start text-sm text-muted-foreground"></p>
           <Button className="mt-4 w-full" asChild>
