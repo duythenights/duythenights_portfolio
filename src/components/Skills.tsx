@@ -16,8 +16,10 @@ const skills = [
   "MUI",
   "shadcn/ui",
   "i18n",
-  "zustand",
-  "tanstack-query",
+  "Zustand",
+  "Tanstack-query",
+  "SEO",
+  "Core Web Vitals",
 ];
 
 export const Skills = () => {
