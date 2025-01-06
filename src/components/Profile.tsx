@@ -1,19 +1,18 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
 import useMediaQuery from "@/hook/useMediaQuery";
+import Image from "next/image";
+import Link from "next/link";
 
-import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 const socials = [
   {
     name: "Github",
-    link: "https://github.com/duythenights?tab=overview&from=2025-01-01&to=2025-01-04",
+    link: "https://github.com/duythenights",
     icon: <FaGithub className="size-4" />,
   },
   {
@@ -21,11 +20,7 @@ const socials = [
     link: "https://linkedin.com/in/duythenights",
     icon: <FaLinkedin className="size-4" />,
   },
-  {
-    name: "X (Twitter)",
-    link: "https://x.com/duythenights",
-    icon: <FaXTwitter className="size-4" />,
-  },
+
   // TODO: Add more socials here
 ];
 
