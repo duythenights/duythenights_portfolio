@@ -11,7 +11,13 @@ export const projects = [
     description:
       "A full-stack Phonecase decoration with React, Node.js, and MongoDB",
     tech: "React",
-    link: "#",
+    link: "https://casecobra-dhduy.vercel.app/",
+  },
+  {
+    title: "Taskify",
+    description: "A full-stack Dynamic track work progress platform.",
+    tech: "NextJS",
+    link: "https://taskify-dhduy.vercel.app/",
   },
 ];
 
@@ -20,6 +26,7 @@ const techColors = {
   "React Native": "bg-green-500",
   "Vue.js": "bg-purple-500",
   Python: "bg-yellow-500",
+  NextJS: "bg-gray-500",
 };
 
 export const Projects = () => {
@@ -32,6 +39,7 @@ export const Projects = () => {
             <CardContent className="pt-6 h-full">
               <div className="flex flex-col h-full">
                 <Link
+                  target="_blank"
                   href={p.link}
                   className="font-semibold text-primary hover:underline"
                 >
