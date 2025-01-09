@@ -13,14 +13,8 @@ export const AboutMe = () => {
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground">
-          {/* Write 1-2 sentences about yourself */}
-          Watching the Silicon Valley series at the age of 19 , now I&apos;m a
-          Frontend Developer. My favorite part of programming is the
-          problem-solving aspect. I love the feeling of finally figuring out a
-          solution to a problem. My core stack is React, Next.js, with Shadcn-ui
-          and Tanstackquery. I am also familiar with TypeScript and Prisma. I am
-          always looking to learn new technologies. I am currently looking for a
-          full-time position as a Frontend developer.
+          {/* Write 1-2 sentences about yourself */}I am a frontend developer
+          with 1.5 year experience.
         </p>
       </CardContent>
     </Card>
