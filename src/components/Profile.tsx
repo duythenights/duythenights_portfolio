@@ -12,12 +12,14 @@ import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 const socials = [
   {
     name: "Github",
-    link: "https://github.com/duythenights",
+    link: "https://github.com/duythenights?tab=overview&from=2025-01-01&to=2025-01-10",
+    linkLabel: "duythenights",
     icon: <FaGithub className="size-4" />,
   },
   {
     name: "LinkedIn",
     link: "https://linkedin.com/in/duythenights",
+    linkLabel: "duythenights",
     icon: <FaLinkedin className="size-4" />,
   },
 
@@ -71,9 +73,6 @@ export const Profile = () => {
           </Button>
           <div className="mt-4 flex flex-col space-y-2 border-t border-border pt-4 w-full">
             {socials.map((s, i) => {
-              const parts = s.link.split("/");
-              const username = parts[parts.length - 1];
-
               return (
                 <Link
                   key={i}
@@ -83,7 +82,7 @@ export const Profile = () => {
                 >
                   {s.icon}
                   <span className="text-sm text-muted-foreground group-hover:text-primary transition-color duration-200 ease-linear">
-                    /{username}
+                    /{s.linkLabel}
                   </span>
                 </Link>
               );
