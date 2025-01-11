@@ -16,13 +16,6 @@ const socials = [
     linkLabel: "duythenights",
     icon: <FaGithub className="size-4" />,
   },
-  {
-    name: "LinkedIn",
-    link: "https://linkedin.com/in/duythenights",
-    linkLabel: "duythenights",
-    icon: <FaLinkedin className="size-4" />,
-  },
-
   // TODO: Add more socials here
 ];
 
