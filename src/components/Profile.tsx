@@ -3,7 +3,7 @@ import useMediaQuery from "@/hook/useMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
