@@ -57,7 +57,7 @@ export const Profile = () => {
             {/* TODO: Add resume */}
             {/* TODO: Add link to schedule a call with you using Calendly or Cal */}
             <Link
-              href="/resume.pdf"
+              href="/DINH_HOANG_DUY_FE_DEV.pdf"
               target="_blank"
               className="font-semibold uppercase"
             >
