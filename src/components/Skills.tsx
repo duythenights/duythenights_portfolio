@@ -2,15 +2,13 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 // TODO: Update skills
 const skills = [
-  "TypeScript",
-  "JavaScript",
   "HTML",
   "CSS",
   "TailwindCSS",
-  "NextJS",
+  "JavaScript",
+  "TypeScript",
   "ReactJS",
-  "Git",
-  "Docker",
+  "NextJS",
   "Redux",
   "Antd",
   "MUI",
@@ -18,6 +16,8 @@ const skills = [
   "i18n",
   "Zustand",
   "Tanstack-query",
+  "Docker",
+  "Git",
   "SEO",
   "Core Web Vitals",
 ];
