@@ -15,14 +15,23 @@ export const AboutMe = () => {
         <p className="text-muted-foreground leading-relaxed">
           I am a{" "}
           <span className="text-primary font-medium">Frontend Developer</span>{" "}
-          with
+          with{" "}
           <span className="text-primary font-medium">
-            {" "}
             1.5 years of experience
           </span>{" "}
-          in building and optimizing CMS, CRM, LMS, and admin panels. My
-          expertise includes business logic optimization, seamless API
-          integrations, performance scalability, and enhancing user experience.
+          in building and optimizing CMS, CRM, LMS, and admin panels.
+        </p>
+
+        <p className="text-muted-foreground leading-relaxed mt-4">
+          My expertise includes{" "}
+          <span className="text-primary font-medium">
+            business logic optimization
+          </span>
+          , seamless API integrations, performance scalability, and enhancing
+          user experience.
+        </p>
+
+        <p className="text-muted-foreground leading-relaxed mt-4">
           I specialize in delivering high-quality, client-focused solutions
           while ensuring
           <span className="text-primary font-medium"> SEO best practices</span>,
