@@ -1,41 +1,60 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// TODO: Update skills
-const skills = [
-  "HTML",
-  "CSS",
-  "TailwindCSS",
-  "JavaScript",
-  "TypeScript",
-  "ReactJS",
-  "NextJS",
-  "Redux",
-  "Antd",
-  "MUI",
-  "shadcn/ui",
-  "i18n",
-  "Zustand",
-  "Tanstack-query",
-  "Docker",
-  "Git",
-  "SEO",
-  "Core Web Vitals",
-];
+
+// Categorized skills
+const categorizedSkills = {
+  "Frontend Technologies": [
+    "HTML",
+    "CSS",
+    "TailwindCSS",
+    "JavaScript",
+    "TypeScript",
+    "ReactJS",
+    "NextJS",
+    "Redux",
+    "Zustand",
+    "Tanstack Query",
+    "Antd",
+    "MUI",
+    "shadcn/ui",
+  ],
+  "Optimization & SEO": ["SEO", "Core Web Vitals"],
+  "Testing & QA": ["Jest", "Cypress"],
+  "Development Tools": ["Git", "Jira", "Docker"],
+  "Development Practices": ["Agile", "Scrum"],
+  "Experience & Specialization": [
+    "Streaming Video",
+    "Realtime Cursor",
+    "CRM",
+    "CMS",
+    "Admin Panel",
+    "i18n - Multilanguage",
+  ],
+};
 
 export const Skills = () => {
   return (
     <Card className="mt-6">
       <CardHeader>
-        <CardTitle>Skills</CardTitle>
+        <CardTitle className="text-lg font-semibold">Skills</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((s, i) => (
-            <Badge key={i} variant="secondary">
-              {s}
-            </Badge>
-          ))}
-        </div>
+      <CardContent className="space-y-5">
+        {Object.entries(categorizedSkills).map(([category, skills]) => (
+          <div key={category}>
+            <h3 className="text-sm font-medium text-gray-700">{category}:</h3>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {skills.map((skill, i) => (
+                <Badge
+                  key={i}
+                  variant="secondary"
+                  className="px-2 py-1 text-xs font-medium rounded-md"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ))}
       </CardContent>
     </Card>
   );
