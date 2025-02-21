@@ -14,51 +14,23 @@ export const AboutMe = () => {
       <CardContent>
         <p className="text-muted-foreground leading-relaxed">
           I am a{" "}
-          <span className="font-bold text-primary">Frontend Developer</span>{" "}
+          <span className="text-primary font-medium">Frontend Developer</span>{" "}
           with
-          <span className="font-bold text-primary">
+          <span className="text-primary font-medium">
             {" "}
             1.5 years of experience
           </span>{" "}
-          in building and optimizing
-          <span className="font-bold text-primary"> CMS</span>,
-          <span className="font-bold text-primary"> CRM</span>,
-          <span className="font-bold text-primary"> LMS</span>, and
-          <span className="font-bold text-primary"> Admin panels</span>. I
-          specialize in
-          <span className="font-bold text-primary">
-            {" "}
-            business logic optimization
-          </span>
-          ,
-          <span className="font-bold text-primary">
-            {" "}
-            seamless API integrations
-          </span>
-          ,
-          <span className="font-bold text-primary">
-            {" "}
-            performance scalability
-          </span>
-          , and
-          <span className="font-bold text-primary">
-            {" "}
-            enhancing user experience
-          </span>
-          . Proficient in
-          <span className="font-bold text-primary"> SEO best practices</span>,
-          <span className="font-bold text-primary">
+          in building and optimizing CMS, CRM, LMS, and admin panels. My
+          expertise includes business logic optimization, seamless API
+          integrations, performance scalability, and enhancing user experience.
+          I specialize in delivering high-quality, client-focused solutions
+          while ensuring
+          <span className="text-primary font-medium"> SEO best practices</span>,
+          <span className="text-primary font-medium">
             {" "}
             Core Web Vitals compliance
           </span>
-          , and
-          <span className="font-bold text-primary"> modern Frontend tools</span>
-          , I deliver high-quality,
-          <span className="font-bold text-primary">
-            {" "}
-            client-focused solutions
-          </span>
-          .
+          , and leveraging modern frontend tools for optimal performance.
         </p>
       </CardContent>
     </Card>
