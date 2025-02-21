@@ -1,27 +1,29 @@
 import Image from "next/image";
-
-import { CalendarDays, ExternalLink } from "lucide-react";
-
+import { CalendarDays, ExternalLink, Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 import { JobImages } from "@/components/JobImages";
 import Link from "next/link";
 
 const jobs = [
   {
-    role: "Junior Frontend Developer", // TODO: Replace with actual role
-    company: "ESTUARY JOINT STOCK COMPANY.", // TODO: Replace with actual company name
-    logo: "/est.png", // TODO: Replace with actual logo
+    role: "Junior Frontend Developer",
+    company: "ESTUARY JOINT STOCK COMPANY.",
+    logo: "/est.png",
     duration: "06/2024 - Present",
     description:
-      "Developed and maintained various client projects, including CMS, CRM, LMS, and Admin panels. Focused on business logic optimization, seamless API integrations, and achieving high performance and scalability. Improved user experience by addressing client-specific requirements and implementing advanced Frontend techniques",
+      "Developed and maintained various client projects, including CMS, CRM, LMS, and Admin panels. Focused on business logic optimization, seamless API integrations, and achieving high performance and scalability. Improved user experience by addressing client-specific requirements and implementing advanced Frontend techniques.",
     link: "https://estuary.solutions/",
     images: [],
+    reference: {
+      name: "Thai Duc Quang",
+      position: "PM - Tech Lead",
+      email: "thaiquang@estuary.solutions",
+    },
   },
   {
-    role: "Intern & Fresher Frontend Developer", // TODO: Replace with actual role
-    company: "UIX VIETNAM CO.,LTD.", // TODO: Replace with actual company name
-    logo: "/uix.png", // TODO: Replace with actual logo
+    role: "Intern & Fresher Frontend Developer",
+    company: "UIX VIETNAM CO.,LTD.",
+    logo: "/uix.png",
     duration: "05/2023 - 06/2024",
     description:
       "Contributed to multiple client projects under mentorship, focusing on performance optimization, SEO best practices, and ensuring compliance with Core Web Vitals. Collaborated with senior developers to implement UI components and debug issues, gaining hands-on experience with modern Frontend tools and workflows.",
@@ -66,6 +68,7 @@ export const Experience = () => {
                   Visit Company Site
                   <ExternalLink className="size-4 ml-2" />
                 </Link>
+
                 {/* Job Images */}
                 <JobImages
                   role={j.role}
@@ -73,6 +76,24 @@ export const Experience = () => {
                   images={j.images}
                   duration={j.duration}
                 />
+
+                {/* Reference Section */}
+                {/* Reference Section (Now Integrated) */}
+                {j.reference && (
+                  <div className="text-xs text-gray-700 dark:text-gray-300 mt-1 flex flex-col">
+                    <span>
+                      <span className="font-medium">{j.reference.name}</span> •{" "}
+                      {j.reference.position}
+                    </span>
+                    <a
+                      href={`mailto:${j.reference.email}`}
+                      className="text-blue-400 hover:text-blue-500 flex items-center gap-2 mt-1"
+                    >
+                      <Mail className="size-3 mr-1" />
+                      {j.reference.email}
+                    </a>
+                  </div>
+                )}
               </li>
             ))}
           </ul>

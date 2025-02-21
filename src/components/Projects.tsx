@@ -63,6 +63,7 @@ export const Projects = () => {
                   <Link
                     href={p.link}
                     className="flex items-center gap-2 text-sm text-primary hover:underline"
+                    target="_blank"
                   >
                     View Project
                     <ExternalLink className="inline-block size-3" />
