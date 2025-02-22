@@ -11,35 +11,22 @@ export const AboutMe = () => {
         <CardTitle>About Me</CardTitle>
         {isDesktopOrLaptop && <ThemeSwitcher />}
       </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground leading-relaxed">
-          I am a{" "}
-          <span className="text-primary font-medium">Frontend Developer</span>{" "}
-          with{" "}
-          <span className="text-primary font-medium">
-            1.5 years of experience
-          </span>{" "}
-          in building and optimizing CMS, CRM, LMS, and admin panels.
+      <CardContent className="text-customBlack dark:text-[#fafafa]">
+        <p className="leading-relaxed">
+          Hello, World! I am <span>Duy</span>, a Frontend Developer passionate
+          about building high-performance, user-centric web applications with
+          seamless functionality and engaging interfaces.
         </p>
-
-        <p className="text-muted-foreground leading-relaxed mt-4">
-          My expertise includes{" "}
-          <span className="text-primary font-medium">
-            business logic optimization
-          </span>
-          , seamless API integrations, performance scalability, and enhancing
-          user experience.
+        <p className="leading-relaxed mt-4">
+          With 1.5 years of experience in web development, I specialize in
+          optimizing and developing CMS, CRM, LMS, and admin panels while
+          ensuring smooth API integrations, performance scalability, and
+          business logic optimization.
         </p>
-
-        <p className="text-muted-foreground leading-relaxed mt-4">
-          I specialize in delivering high-quality, client-focused solutions
-          while ensuring
-          <span className="text-primary font-medium"> SEO best practices</span>,
-          <span className="text-primary font-medium">
-            {" "}
-            Core Web Vitals compliance
-          </span>
-          , and leveraging modern frontend tools for optimal performance.
+        <p className="leading-relaxed mt-4">
+          Outside of my full-time work, I enjoy exploring modern frontend
+          technologies, refining user experiences, and turning ideas into
+          reality through personal projects.
         </p>
       </CardContent>
     </Card>

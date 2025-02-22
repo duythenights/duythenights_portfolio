@@ -28,10 +28,10 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@chrislonzo",
+      creator: "@duythenights",
     },
     icons,
-    metadataBase: new URL("https://www.chrislonzo.com"),
+    metadataBase: new URL("https://duythenights.vercel.app"),
     ...(noIndex && {
       robots: {
         index: false,
