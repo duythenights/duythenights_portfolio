@@ -8,9 +8,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
-import { AnimatedShinyText } from "./magicui/animated-shiny-text";
-import { ArrowRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ExternalLink } from "lucide-react";
+import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 
 const socials = [
   {
@@ -89,37 +89,42 @@ export const Profile = () => {
               );
             })}
           </div>
-          <Link
-            href={"https://app.daily.dev/squads/silverhowls"}
-            target="_blank"
-          >
-            <div className="z-10 flex items-center">
-              <div
-                className={cn(
-                  "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-                )}
-              >
-                <AnimatedShinyText className="text-sm inline-flex items-center justify-start px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>📝 My Blog</span>
-                  <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-                </AnimatedShinyText>
+          <div className="flex gap-1 flex-wrap">
+            <Link
+              href={"https://app.daily.dev/squads/silverhowls"}
+              target="_blank"
+            >
+              <div className="z-10 flex items-center">
+                <div
+                  className={cn(
+                    "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                  )}
+                >
+                  <AnimatedShinyText className="text-sm inline-flex items-center justify-start px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                    <span>📝 My Blog</span>
+                    <ExternalLink className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                  </AnimatedShinyText>
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link href={"https://my-learning-notes.vercel.app/"} target="_blank">
-            <div className="z-10 flex items-center">
-              <div
-                className={cn(
-                  "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-                )}
-              >
-                <AnimatedShinyText className="text-sm inline-flex items-center justify-start px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>📖 My Learning Notes</span>
-                  <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-                </AnimatedShinyText>
+            </Link>
+            <Link
+              href={"https://my-learning-notes.vercel.app/"}
+              target="_blank"
+            >
+              <div className="z-10 flex items-center">
+                <div
+                  className={cn(
+                    "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                  )}
+                >
+                  <AnimatedShinyText className="text-sm inline-flex items-center justify-start px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                    <span>📖 My Notes</span>
+                    <ExternalLink className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                  </AnimatedShinyText>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </CardContent>
     </Card>
