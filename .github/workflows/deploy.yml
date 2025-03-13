@@ -1,10 +1,3 @@
-name: Deploy Next.js to EC2
-
-on:
-  push:
-    branches:
-      - main # Change to your branch if different
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,18 +18,28 @@ jobs:
       - name: ⚡ Build Next.js App
         run: yarn build
 
-      - name: Debug SSH Key
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64
-      - name: 🔑 Deploy to EC2 via SSH
+      - name: 🗜️ Compress Build Files
+        run: tar -czf build.tar.gz .next package.json yarn.lock
+
+      - name: 🔑 Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: 🚀 Deploy Build Files to EC2
+        run: scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no build.tar.gz ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/duythenights_portfolio/
+
+      - name: 🛠 Deploy on EC2
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/duythenights_portfolio  # Change to your project folder
-            git pull origin main  # Pull latest code
-            yarn install --frozen-lockfile  # Install dependencies
-            yarn build  # Build the app
-            pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start  # Restart or start with PM2
-            pm2 save  # Save PM2 process list
+            cd /home/ubuntu/duythenights_portfolio
+            tar -xzf build.tar.gz
+            yarn install --production --frozen-lockfile
+            pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start
+            pm2 save
