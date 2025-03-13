@@ -47,7 +47,7 @@ jobs:
             npm install --production
 
             # Ensure PM2 is installed
-            npm install -g pm2
+            sudo npm install -g pm2
 
             # Restart or start PM2 process
             pm2 restart ${{ secrets.PM2_NAME }} || pm2 start npm --name ${{ secrets.PM2_NAME }} -- start
