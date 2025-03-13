@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "next-app",
+      name: "portfolio_3000",
       script: "yarn",
       args: "start",
       env: {
