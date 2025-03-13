@@ -157,11 +157,20 @@ export default {
             transform: "translateY(calc(-100% - var(--gap)))",
           },
         },
+        rainbow: {
+          "0%": {
+            "background-position": "0%",
+          },
+          "100%": {
+            "background-position": "200%",
+          },
+        },
       },
       animation: {
         "shiny-text": "shiny-text 8s infinite",
         marquee: "marquee var(--duration) infinite linear",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        rainbow: "rainbow var(--speed, 2s) infinite linear",
       },
     },
   },

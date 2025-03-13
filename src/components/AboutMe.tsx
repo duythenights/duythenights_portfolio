@@ -1,7 +1,10 @@
 "use client";
-import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import useMediaQuery from "@/hook/useMediaQuery";
+import { ExternalLink } from "lucide-react";
+import { RainbowButton } from "./magicui/rainbow-button";
+import Link from "next/link";
 
 export const AboutMe = () => {
   const isDesktopOrLaptop = useMediaQuery("(min-width: 1224px)");
@@ -9,7 +12,14 @@ export const AboutMe = () => {
     <Card className="mb-6">
       <CardHeader className="flex flex-row justify-between items-baseline">
         <CardTitle>About Me</CardTitle>
-        {isDesktopOrLaptop && <ThemeSwitcher />}
+        <div className="flex items-center gap-2 ">
+          <Link target="_blank" href={"https://dev.to/duythenight"}>
+            <RainbowButton className="text-[12px] !h-[33px] rounded-full px-4 py-0 flex ">
+              Blog <ExternalLink size={12} className="ml-1" />
+            </RainbowButton>
+          </Link>
+          {isDesktopOrLaptop && <ThemeSwitcher />}
+        </div>
       </CardHeader>
       <CardContent className="text-customBlack dark:text-[#fafafa]">
         <p className="leading-relaxed">
