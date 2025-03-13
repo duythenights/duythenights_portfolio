@@ -1,4 +1,4 @@
-name: Deploy Portfolio
+name: Deploy Next.js App
 
 on:
   push:
@@ -11,19 +11,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Updated to v4
+        uses: actions/checkout@v4 # Use v4 for the latest support
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4 # Use v4 for Node.js 20
-        with:
-          node-version: 20
-          cache: yarn # Cache Yarn dependencies
+      - name: Setup Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
+          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
+          source ~/.bashrc
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile # Use Yarn instead of npm
+        run: bun install
 
-      - name: Build Portfolio
-        run: yarn build # Build using Yarn
+      - name: Build Next.js app
+        run: bun run build
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.10
@@ -32,14 +33,11 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Ensure Node.js 20 is installed
-            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-            sudo apt install -y nodejs
-
-            # Install Yarn globally if not available
-            if ! command -v yarn &> /dev/null; then
-              npm install -g yarn
-            fi
+            # Ensure Bun is installed
+            curl -fsSL https://bun.sh/install | bash
+            echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
+            echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
+            source ~/.bashrc
 
             # Navigate to project directory
             cd /home/ubuntu/duythenights_portfolio
@@ -47,17 +45,12 @@ jobs:
             # Pull latest changes
             git pull origin main
 
-            # Ensure correct Node.js version
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm use 20
-
-            # Install dependencies and build with Yarn
-            yarn install --frozen-lockfile
-            yarn build
+            # Install dependencies and build
+            bun install
+            bun run build
 
             # Ensure PM2 is installed
-            yarn global add pm2
+            bunx pm2 install
 
             # Restart app with PM2
             pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js
