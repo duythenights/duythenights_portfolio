@@ -1,52 +1,55 @@
-name: Deploy Next.js to EC2
-
+name: Deploy Portfolio
 on:
   push:
     branches:
-      - main # Change this if needed
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚀 Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🛠️ Setup Node.js 20.18 and Yarn
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.18
+          node-version: 20
           cache: "yarn"
 
-      - name: 📦 Install Dependencies
+      - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: ⚡ Build Next.js App
+      - name: Build Next.js application
         run: yarn build
 
-      - name: 🔑 Setup SSH Key
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          APP_PATH: "/home/${{ secrets.EC2_USER }}/duythenights_portfolio"
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
 
-      - name: 🔄 Deploy to EC2 via SSH
-        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+          # Sync files to EC2
+          rsync -avz --delete -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" ./ $EC2_USER@$EC2_HOST:$APP_PATH
 
-          cd /home/ubuntu/duythenights_portfolio || git clone git@github.com:your-username/your-repo.git duythenights_portfolio
-          cd /home/ubuntu/duythenights_portfolio
+          # SSH into EC2 and restart PM2
+          ssh -i private_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << EOF
+            cd $APP_PATH
+            yarn install --frozen-lockfile
+            yarn build
 
-          git pull origin main
-          npm install -g yarn pm2
-          yarn install --frozen-lockfile
-          yarn build
-          pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start
-          pm2 save
-        EOF
+            # Ensure PM2 is installed
+            pm2 list || npm install -g pm2
 
+            # Restart application
+            pm2 restart next-app || pm2 start yarn --name "next-app" -- start
+            pm2 save
+          EOF
 
-
+          # Cleanup private key
+          rm -f private_key.pem
