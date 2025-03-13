@@ -1,0 +1,40 @@
+name: Deploy Next.js to EC2
+
+on:
+  push:
+    branches:
+      - main # Change to your branch if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup Node.js 20.18 and Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18
+          cache: "yarn"
+
+      - name: 📦 Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: ⚡ Build Next.js App
+        run: yarn build
+
+      - name: 🔑 Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/my-next-app  # Change to your project folder
+            git pull origin main  # Pull latest code
+            yarn install --frozen-lockfile  # Install dependencies
+            yarn build  # Build the app
+            pm2 restart my-next-app || pm2 start yarn --name "my-next-app" -- start  # Restart or start with PM2
+            pm2 save  # Save PM2 process list
