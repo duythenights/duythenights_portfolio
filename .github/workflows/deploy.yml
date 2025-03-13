@@ -1,70 +1,73 @@
 name: Deploy Portfolio
+
 on:
   push:
     branches:
-      - main
+      - main # Change to your default branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4 # Updated to v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # Use v4 for Node.js 20
         with:
           node-version: 20
-          cache: "yarn"
+          cache: yarn # Cache Yarn dependencies
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile # Use Yarn instead of npm
 
-      - name: Build Next.js application
-        run: yarn build
+      - name: Build Portfolio
+        run: yarn build # Build using Yarn
 
       - name: Deploy to EC2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          APP_PATH: "/home/${{ secrets.EC2_USER }}/duythenights_portfolio"
-        run: |
-          echo "$SSH_PRIVATE_KEY" > private_key.pem
-          chmod 600 private_key.pem
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Ensure Node.js 20 is installed
+            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            sudo apt install -y nodejs
 
-          # Sync files to EC2
-          rsync -avz --delete -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" ./ $EC2_USER@$EC2_HOST:$APP_PATH
-
-          # SSH into EC2 and set up environment
-          ssh -i private_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-            # Install Node.js 20 and Yarn if not installed
-            if ! command -v node &> /dev/null; then
-              curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-              sudo apt-get install -y nodejs
-            fi
-
+            # Install Yarn globally if not available
             if ! command -v yarn &> /dev/null; then
               npm install -g yarn
             fi
 
-            # Go to app directory
-            cd $APP_PATH
+            # Navigate to project directory
+            cd /home/ubuntu/duythenights_portfolio
 
-            # Install dependencies and build the project
+            # Pull latest changes
+            git pull origin main
+
+            # Ensure correct Node.js version
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use 20
+
+            # Install dependencies and build with Yarn
             yarn install --frozen-lockfile
             yarn build
 
             # Ensure PM2 is installed
-            if ! command -v pm2 &> /dev/null; then
-              npm install -g pm2
-            fi
+            yarn global add pm2
 
-            # Start or restart the app with PM2
-            pm2 restart next-app || pm2 start yarn --name "next-app" -- start
+            # Restart app with PM2
+            pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js
             pm2 save
-          EOF
 
-          # Cleanup private key
-          rm -f private_key.pem
+      - name: Restart Nginx
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo systemctl restart nginx
