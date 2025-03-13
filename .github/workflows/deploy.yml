@@ -3,7 +3,7 @@ name: Deploy Next.js to EC2
 on:
   push:
     branches:
-      - main # Change to your branch if different
+      - main # Change this if needed
 
 jobs:
   deploy:
@@ -25,9 +25,6 @@ jobs:
       - name: ⚡ Build Next.js App
         run: yarn build
 
-      - name: 🗜️ Compress Build Files
-        run: tar -czf build.tar.gz .next package.json yarn.lock
-
       - name: 🔑 Setup SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -35,18 +32,21 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      - name: 🚀 Deploy Build Files to EC2
-        run: scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no build.tar.gz ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/duythenights_portfolio/
+      - name: 🔄 Deploy to EC2 via SSH
+        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-      - name: 🛠 Deploy on EC2
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /home/ubuntu/duythenights_portfolio
-            tar -xzf build.tar.gz
-            yarn install --production --frozen-lockfile
-            pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start
-            pm2 save
+          cd /home/ubuntu/duythenights_portfolio || git clone git@github.com:your-username/your-repo.git duythenights_portfolio
+          cd /home/ubuntu/duythenights_portfolio
+
+          git pull origin main
+          npm install -g yarn pm2
+          yarn install --frozen-lockfile
+          yarn build
+          pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start
+          pm2 save
+        EOF
+
+
+
