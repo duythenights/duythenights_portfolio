@@ -25,6 +25,8 @@ jobs:
       - name: ⚡ Build Next.js App
         run: yarn build
 
+      - name: Debug SSH Key
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64
       - name: 🔑 Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -32,9 +34,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/my-next-app  # Change to your project folder
+            cd /home/ubuntu/duythenights_portfolio  # Change to your project folder
             git pull origin main  # Pull latest code
             yarn install --frozen-lockfile  # Install dependencies
             yarn build  # Build the app
-            pm2 restart my-next-app || pm2 start yarn --name "my-next-app" -- start  # Restart or start with PM2
+            pm2 restart portfolio_3000 || pm2 start yarn --name "portfolio_3000" -- start  # Restart or start with PM2
             pm2 save  # Save PM2 process list
