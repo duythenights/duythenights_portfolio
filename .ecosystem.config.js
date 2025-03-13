@@ -1,12 +1,12 @@
 module.exports = {
   apps: [
     {
-      name: "portfolio_3000",
-      script: "npm",
+      name: "nextjs-app",
+      script: "yarn",
       args: "start",
+      interpreter: "/bin/bash",
       env: {
         NODE_ENV: "production",
-        PORT: 3000,
       },
     },
   ],

@@ -1,9 +1,9 @@
-name: Deploy Next.js App with Bun
+name: Deploy Site
 
 on:
   push:
     branches:
-      - main # Change to your default branch
+      - main
 
 jobs:
   deploy:
@@ -11,68 +11,40 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Use v4 for the latest support
+        uses: actions/checkout@v3
 
-      - name: Install Bun
-        run: |
-          curl -fsSL https://bun.sh/install | bash
-          echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
-          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
+      - name: Install Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-      - name: Verify Bun Installation
-        run: |
-          export BUN_INSTALL="$HOME/.bun"
-          export PATH="$BUN_INSTALL/bin:$PATH"
-          bun --version  # Ensure Bun is installed correctly
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
-        run: |
-          export BUN_INSTALL="$HOME/.bun"
-          export PATH="$BUN_INSTALL/bin:$PATH"
-          bun install
+        run: yarn install
 
-      - name: Build Next.js app
-        run: |
-          export BUN_INSTALL="$HOME/.bun"
-          export PATH="$BUN_INSTALL/bin:$PATH"
-          bun run build
+      - name: Build Next.js application
+        run: yarn build
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # Ensure Bun is installed on EC2
-            curl -fsSL https://bun.sh/install | bash
-            echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
-            echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
-            export BUN_INSTALL="$HOME/.bun"
-            export PATH="$BUN_INSTALL/bin:$PATH"
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_APP_NAME: ${{secrets.EC2_APP_NAME}}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$EC2_SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
 
-            # Navigate to project directory
-            cd /home/ubuntu/duythenights_portfolio
+          # Copy the built application to the EC2 instance
+          rsync -avz --delete --exclude={'node_modules','.git','.next/cache'} . $EC2_USER@$EC2_HOST:/home/$EC2_USER/$EC2_APP_NAME
 
-            # Pull latest changes
-            git pull origin main
-
-            # Install dependencies and build with Bun
-            bun install
-            bun run build
-
-            # Ensure PM2 is installed
-            bunx pm2 install
-
-            # Restart app with PM2
-            pm2 restart ecosystem.config.js || pm2 start ecosystem.config.js
-            pm2 save
-
-      - name: Restart Nginx
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            sudo systemctl restart nginx
+          # SSH into the EC2 instance and restart the PM2 process
+          ssh $EC2_USER@$EC2_HOST << 'EOF'
+          cd /home/$EC2_USER/$EC2_APP_NAME
+          yarn install --production
+          pm2 restart ecosystem.config.js
+          EOF
