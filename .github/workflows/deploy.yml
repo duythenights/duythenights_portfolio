@@ -1,4 +1,4 @@
-name: Deploy Next.js App
+name: Deploy Next.js App with Bun
 
 on:
   push:
@@ -13,12 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4 # Use v4 for the latest support
 
-      - name: Setup Bun
+      - name: Install Bun
         run: |
           curl -fsSL https://bun.sh/install | bash
-          echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
-          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
-          source ~/.bashrc
+          echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
+          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
+          source $GITHUB_ENV
+
+      - name: Verify Bun Installation
+        run: bun --version # Ensure Bun is installed correctly
 
       - name: Install dependencies
         run: bun install
@@ -33,7 +36,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Ensure Bun is installed
+            # Ensure Bun is installed on EC2
             curl -fsSL https://bun.sh/install | bash
             echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
             echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
@@ -45,7 +48,7 @@ jobs:
             # Pull latest changes
             git pull origin main
 
-            # Install dependencies and build
+            # Install dependencies and build with Bun
             bun install
             bun run build
 
