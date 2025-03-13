@@ -18,16 +18,24 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
           echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
-          source $GITHUB_ENV
 
       - name: Verify Bun Installation
-        run: bun --version # Ensure Bun is installed correctly
+        run: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          bun --version  # Ensure Bun is installed correctly
 
       - name: Install dependencies
-        run: bun install
+        run: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          bun install
 
       - name: Build Next.js app
-        run: bun run build
+        run: |
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          bun run build
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.10
@@ -40,7 +48,8 @@ jobs:
             curl -fsSL https://bun.sh/install | bash
             echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
             echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
-            source ~/.bashrc
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
 
             # Navigate to project directory
             cd /home/ubuntu/duythenights_portfolio
