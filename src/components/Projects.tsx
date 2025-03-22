@@ -10,14 +10,14 @@ export const projects = [
     title: "Casecobra",
     description:
       "A full-stack Phonecase decoration with React, Node.js, and MongoDB",
-    tech: "React",
-    link: "https://casecobra-dhduy.vercel.app/",
+    tech: "NextJS",
+    link: "https://casecobra.duy.onl/",
   },
   {
     title: "Taskify",
     description: "A full-stack Dynamic track work progress platform.",
     tech: "NextJS",
-    link: "https://taskify-dhduy.vercel.app/",
+    link: "https://taskify.duy.onl/",
   },
 ];
 
