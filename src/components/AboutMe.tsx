@@ -28,7 +28,7 @@ export const AboutMe = () => {
           seamless functionality and engaging interfaces.
         </p>
         <p className="leading-relaxed mt-4">
-          With 1.5 years of experience in web development, I specialize in
+          With 2 years of experience in web development, I specialize in
           optimizing and developing CMS, CRM, LMS, and admin panels while
           ensuring smooth API integrations, performance scalability, and
           business logic optimization.
