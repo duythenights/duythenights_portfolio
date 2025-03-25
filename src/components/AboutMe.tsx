@@ -1,10 +1,10 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import useMediaQuery from "@/hook/useMediaQuery";
 import { ExternalLink } from "lucide-react";
-import { RainbowButton } from "./magicui/rainbow-button";
 import Link from "next/link";
+import { RainbowButton } from "./magicui/rainbow-button";
+import ThemeToggle from "./ui/ThemeToggle";
 
 export const AboutMe = () => {
   const isDesktopOrLaptop = useMediaQuery("(min-width: 1224px)");
@@ -18,7 +18,7 @@ export const AboutMe = () => {
               Blog <ExternalLink size={12} className="ml-1" />
             </RainbowButton>
           </Link>
-          {isDesktopOrLaptop && <ThemeSwitcher />}
+          {isDesktopOrLaptop && <ThemeToggle />}
         </div>
       </CardHeader>
       <CardContent className="text-customBlack dark:text-[#fafafa]">
