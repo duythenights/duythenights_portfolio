@@ -63,7 +63,7 @@ export const Experience = () => {
                 <Link
                   href={j.link}
                   target="_blank"
-                  className="text-sm flex items-center justify-left text-blue-600 hover:underline mt-2"
+                  className="text-sm flex items-center justify-left text-blue-500 hover:underline mt-2"
                 >
                   Visit Company Site
                   <ExternalLink className="size-4 ml-2" />
