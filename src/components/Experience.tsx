@@ -27,7 +27,7 @@ const jobs = [
     duration: "05/2023 - 06/2024",
     description:
       "Contributed to multiple client projects under mentorship, focusing on performance optimization, SEO best practices, and ensuring compliance with Core Web Vitals. Collaborated with senior developers to implement UI components and debug issues, gaining hands-on experience with modern Frontend tools and workflows.",
-    link: "https://loocreative.com/",
+    link: "https://loocreative.com",
     images: [],
   },
 ];
