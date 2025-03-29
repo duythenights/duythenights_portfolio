@@ -12,7 +12,7 @@ const jobs = [
     duration: "06/2024 - Present",
     description:
       "Developed and maintained various client projects, including CMS, CRM, LMS, and Admin panels. Focused on business logic optimization, seamless API integrations, and achieving high performance and scalability. Improved user experience by addressing client-specific requirements and implementing advanced Frontend techniques.",
-    link: "https://estuary.solutions/",
+    link: "https://estuary.solutions",
     images: [],
     reference: {
       name: "Thai Duc Quang",
