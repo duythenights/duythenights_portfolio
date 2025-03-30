@@ -12,7 +12,7 @@ import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 const socials = [
   {
     name: "Github",
-    link: "https://github.com/duythenights",
+    link: "https://github.com/duythenights?tab=overview&from=2025-03-01&to=2025-03-30",
     linkLabel: "duythenights",
     icon: <FaGithub className="size-4" />,
   },
