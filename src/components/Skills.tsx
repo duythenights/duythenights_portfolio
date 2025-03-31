@@ -14,7 +14,7 @@ const categorizedSkills = {
     "Redux",
     "Zustand",
     "Tanstack Query",
-    "Antd",
+    "Ant Design",
     "MUI",
     "shadcn/ui",
   ],
