@@ -23,8 +23,8 @@ const categorizedSkills = {
   "Development Tools": ["Git", "Jira", "Docker"],
   "Development Practices": ["Agile", "Scrum"],
   "Experience & Specialization": [
-    "Streaming Video",
-    "Realtime Cursor",
+    "Web socket",
+    "Socket.io",
     "CRM",
     "CMS",
     "Admin Panel",
