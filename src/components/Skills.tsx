@@ -22,6 +22,7 @@ const categorizedSkills = {
   "Testing & QA": ["Jest", "Cypress"],
   "Development Tools": ["Git", "Jira", "Docker"],
   "Development Practices": ["Agile", "Scrum"],
+  "Design Tool": ["Figma", "Zeplin"],
   "Experience & Specialization": [
     "Web socket",
     "Socket.io",
@@ -29,6 +30,7 @@ const categorizedSkills = {
     "CMS",
     "Admin Panel",
     "i18n - Multilanguage",
+    "React Native",
   ],
 };
 
