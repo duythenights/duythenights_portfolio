@@ -28,15 +28,15 @@ export const AboutMe = () => {
           seamless functionality and engaging interfaces.
         </p>
         <p className="leading-relaxed mt-4">
-          With 2 years of experience in web development, I specialize in
-          optimizing and developing CMS, CRM, LMS, and admin panels while
-          ensuring smooth API integrations, performance scalability, and
-          business logic optimization.
+          With 2 years’ experience building and improving CMS, CRM, and admin
+          panel systems. Skilled in React, Next.js, TypeScript, API integration,
+          and performance optimization.
         </p>
         <p className="leading-relaxed mt-4">
-          Outside of my full-time work, I enjoy exploring modern frontend
-          technologies, refining user experiences, and turning ideas into
-          reality through personal projects.
+          Experienced in creating smooth animations using GSAP to enhance user
+          experience. Able to develop responsive microsites optimized for mobile
+          support. Strong team player working well in Agile environments to
+          deliver quality work.
         </p>
       </CardContent>
     </Card>
