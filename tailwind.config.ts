@@ -141,6 +141,17 @@ export default {
             "background-position": "calc(100% + var(--shiny-width)) 0",
           },
         },
+        shine: {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
+        },
         marquee: {
           from: {
             transform: "translateX(0)",
@@ -171,6 +182,7 @@ export default {
         marquee: "marquee var(--duration) infinite linear",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         rainbow: "rainbow var(--speed, 2s) infinite linear",
+        shine: "shine 10s infinite",
       },
     },
   },
