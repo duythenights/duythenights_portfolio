@@ -6,15 +6,17 @@ import { ExternalLink, Github } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { ShineBorder } from "./magicui/shine-border";
+import Image from "next/image";
 
 export const projects = [
   {
     title: "Zentry Clone",
     description:
-      "A visually polished landing page inspired by the Zentry NFT game ecosystem.",
+      "A visually polished landing page inspired by the Zentry NFT game ecosystem using Nextjs & GSAP.",
     tech: "NextJS",
     link: "https://zentry.duy.onl/",
     source_code: "https://github.com/duythenights/Zentry-clone",
+    image: "/projects/zentry.webp",
   },
   {
     title: "Casecobra",
@@ -23,6 +25,7 @@ export const projects = [
     tech: "NextJS",
     link: "https://casecobra.duy.onl/",
     source_code: "https://github.com/duythenights/casecobra",
+    image: "/projects/casecobra.webp",
   },
 ];
 
@@ -34,7 +37,7 @@ const techColors = {
 export const Projects = () => {
   return (
     <>
-      <h2 className="text-xl font-bold mb-4">Personal Projects</h2>
+      <h2 className="text-xl font-bold mb-4 text-primary">Personal Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {projects.map((p, i) => (
           <Card key={i} className="relative overflow-hidden ">
@@ -54,9 +57,21 @@ export const Projects = () => {
                     <Github />
                   </Link>
                 </div>
+                <div className="w-full mt-2 h-[130px] rounded-md overflow-hidden">
+                  <Link href={p.link} target="_blank">
+                    <Image
+                      className="w-full h-full object-cover"
+                      src={p.image}
+                      alt={p.title}
+                      width={300}
+                      height={200}
+                    />
+                  </Link>
+                </div>
                 <p className="text-sm text-muted-foreground mt-1 mb-4">
                   {p.description}
                 </p>
+
                 <div className="mt-auto flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div
