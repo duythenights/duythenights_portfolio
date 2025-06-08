@@ -1,34 +1,27 @@
-import Image from "next/image";
-import { CalendarDays, ExternalLink, Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { JobImages } from "@/components/JobImages";
+import { CalendarDays, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const jobs = [
   {
-    role: "Junior Frontend Developer",
+    role: "Intern, Fresher & Junior Frontend Developer",
     company: "ESTUARY JOINT STOCK COMPANY.",
     logo: "/est.png",
-    duration: "06/2024 - Present",
-    description:
-      "Developed and maintained various client projects, including CMS, CRM, LMS, and Admin panels. Focused on business logic optimization, seamless API integrations, and achieving high performance and scalability. Improved user experience by addressing client-specific requirements and implementing advanced Frontend techniques.",
+    duration: "05/2023 - Present",
+    description: [
+      "Built and maintained <span class='font-semibold'>web apps</span> using <span class='font-semibold'>React.js</span>, <span class='font-semibold'>Next.js</span>, and <span class='font-semibold'>Vite</span>.",
+      "Migrated from <span class='font-semibold'>Webpack</span> to <span class='font-semibold'>Vite</span>, boosting <span class='font-semibold'>startup</span> and <span class='font-semibold'>HMR</span> speed by ~70%.",
+      "Upgraded codebase to <span class='font-semibold'>React 18</span> for <span class='font-semibold'>performance</span> and <span class='font-semibold'>developer experience</span> improvements.",
+      "Developed <span class='font-semibold'>scalable</span>, <span class='font-semibold'>responsive UIs</span> with <span class='font-semibold'>multilingual (i18n)</span> support.",
+      "Used <span class='font-semibold'>Zustand</span> and <span class='font-semibold'>TanStack Query</span> for efficient <span class='font-semibold'>state</span> and <span class='font-semibold'>data management</span>.",
+      "Integrated <span class='font-semibold'>third-party libraries</span> and <span class='font-semibold'>OAuth</span> (Google, Microsoft).",
+      "Collaborated in <span class='font-semibold'>Agile teams</span> and participated in <span class='font-semibold'>sprint rituals</span>.",
+      "Worked with <span class='font-semibold'>Product Owners</span> to define and prioritize <span class='font-semibold'>features</span>.",
+      "Automated <span class='font-semibold'>deployments</span> via <span class='font-semibold'>GitLab CI/CD pipelines</span>.",
+      "Managed <span class='font-semibold'>multiple projects</span> under <span class='font-semibold'>tight deadlines</span>.",
+    ],
     link: "https://estuary.solutions/",
-    images: [],
-    reference: {
-      name: "Thai Duc Quang",
-      position: "PM - Tech Lead",
-      email: "thaiquang@estuary.solutions",
-    },
-  },
-  {
-    role: "Intern & Fresher Frontend Developer",
-    company: "UIX VIETNAM CO.,LTD.",
-    logo: "/uix.png",
-    duration: "05/2023 - 06/2024",
-    description:
-      "Contributed to multiple client projects under mentorship, focusing on performance optimization, SEO best practices, and ensuring compliance with Core Web Vitals. Collaborated with senior developers to implement UI components and debug issues, gaining hands-on experience with modern Frontend tools and workflows.",
-    link: "https://loocreative.com/",
-    images: [],
   },
 ];
 
@@ -59,7 +52,16 @@ export const Experience = () => {
                   <CalendarDays className="size-3 mr-2" />
                   {j.duration}
                 </p>
-                <p className="text-sm mt-2">{j.description}</p>
+                <ul className="list-disc list-inside text-sm mt-2 space-y-1">
+                  {Array.isArray(j.description) &&
+                    j.description.map((point, index) => (
+                      <li
+                        key={index}
+                        dangerouslySetInnerHTML={{ __html: point }}
+                        className="leading-relaxed"
+                      />
+                    ))}
+                </ul>
                 <Link
                   href={j.link}
                   target="_blank"
@@ -68,32 +70,6 @@ export const Experience = () => {
                   Visit Company Site
                   <ExternalLink className="size-4 ml-2" />
                 </Link>
-
-                {/* Job Images */}
-                <JobImages
-                  role={j.role}
-                  link={j.link}
-                  images={j.images}
-                  duration={j.duration}
-                />
-
-                {/* Reference Section */}
-                {/* Reference Section (Now Integrated) */}
-                {j.reference && (
-                  <div className="text-xs text-gray-700 dark:text-gray-300 mt-1 flex flex-col">
-                    <span>
-                      <span className="font-medium">{j.reference.name}</span> •{" "}
-                      {j.reference.position}
-                    </span>
-                    <a
-                      href={`mailto:${j.reference.email}`}
-                      className="text-blue-400 hover:text-blue-500 flex items-center gap-2 mt-1"
-                    >
-                      <Mail className="size-3 mr-1" />
-                      {j.reference.email}
-                    </a>
-                  </div>
-                )}
               </li>
             ))}
           </ul>
