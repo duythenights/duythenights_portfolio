@@ -14,7 +14,7 @@ export const AboutMe = () => {
         <CardTitle>About Me</CardTitle>
         <div className="flex items-center gap-2 ">
           <Link target="_blank" href={"https://dev.to/duythenight"}>
-            <RainbowButton className="text-[12px] !h-[33px] rounded-full px-4 py-0 flex ">
+            <RainbowButton className="text-[12px] !h-[33px] rounded-md px-4 py-0 flex ">
               Blog <ExternalLink size={12} className="ml-1" />
             </RainbowButton>
           </Link>
