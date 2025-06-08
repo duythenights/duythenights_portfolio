@@ -1,13 +1,13 @@
 "use client";
 
+import { Theme } from "@radix-ui/themes";
 import React, {
   createContext,
-  useContext,
-  useState,
-  useEffect,
   ReactNode,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
-import { Theme } from "@radix-ui/themes";
 
 export type ThemeType = "light" | "dark";
 
@@ -23,12 +23,12 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const getSystemTheme = (): ThemeType => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  };
+  // const getSystemTheme = (): ThemeType => {
+  //   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  //     return "dark";
+  //   }
+  //   return "light";
+  // };
 
   const [theme, setTheme] = useState<ThemeType>("light");
 
@@ -39,7 +39,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     if (storedTheme && ["light", "dark"].includes(storedTheme)) {
       setTheme(storedTheme);
     } else {
-      const systemTheme = getSystemTheme();
+      // const systemTheme = getSystemTheme();
+      const systemTheme = "dark";
       setTheme(systemTheme);
       window.localStorage.setItem("x-theme", systemTheme);
     }
