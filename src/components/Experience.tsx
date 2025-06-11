@@ -28,7 +28,7 @@ const jobs = [
 export const Experience = () => {
   return (
     <>
-      <h2 className="text-xl font-bold mb-4">Work Experience</h2>
+      <h2 className="text-xl font-bold mb-4 text-primary">Work Experience</h2>
       <Card>
         <CardContent className="pt-6">
           <ul className="space-y-8">
