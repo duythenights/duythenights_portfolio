@@ -21,8 +21,8 @@ export default function Home() {
           </main>
         </div>
       </div>
-      <div className="w-20 z-10 h-[200vh] origin-center bg-neutral-300/20 dark:bg-neutral-600/20 animate-pulse duration-00  fixed -top-1/2 left-[97%] rotate-45"></div>
-      <div className="w-20 z-10 h-[200vh] origin-center bg-neutral-300/20 dark:bg-neutral-600/20  animate-pulse duration-1000 fixed -top-1/2 left-1/5 rotate-45"></div>
+      <div className="w-20 z-10 h-[200dvh] origin-center bg-neutral-300/20 dark:bg-neutral-600/20 animate-pulse duration-00  fixed -top-1/2 left-[97%] rotate-45"></div>
+      <div className="w-20 z-10 h-[200dvh] origin-center bg-neutral-300/20 dark:bg-neutral-600/20  animate-pulse duration-1000 fixed -top-1/2 left-1/5 rotate-45"></div>
     </div>
   );
 }

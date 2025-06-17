@@ -18,7 +18,6 @@ const ThemeToggle = () => {
   const [preferredTheme, setPreferredTheme] = useState<string | null>(null);
   const { theme, setTheme } = useTheme();
 
-  console.log("preferredTheme", preferredTheme);
   // Sync preferred theme with current theme
   useEffect(() => {
     if (theme) {
@@ -31,7 +30,6 @@ const ThemeToggle = () => {
     if (setTheme) {
       const toggleTheme =
         (themes.find(({ key }) => key === theme)?.toggle as ThemeType) || theme;
-
       setTheme(toggleTheme);
     } else {
       console.error("setTheme function is not available.");

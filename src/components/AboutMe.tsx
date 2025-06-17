@@ -7,7 +7,7 @@ import { RainbowButton } from "./magicui/rainbow-button";
 import ThemeToggle from "./ui/ThemeToggle";
 
 export const AboutMe = () => {
-  const isDesktopOrLaptop = useMediaQuery("(min-width: 1224px)");
+  const isDesktopOrLaptop = useMediaQuery("(min-width: 768px)");
   return (
     <Card className="mb-6">
       <CardHeader className="flex flex-row justify-between items-baseline">

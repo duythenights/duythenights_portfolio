@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin, FaRegNewspaper } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const socials = [
   {
@@ -31,7 +31,7 @@ const socials = [
 ];
 
 export const Profile = () => {
-  const isDesktopOrLaptop = useMediaQuery("(min-width: 1224px)");
+  const isDesktopOrLaptop = useMediaQuery("(min-width: 768px)");
 
   return (
     <Card>
@@ -56,7 +56,7 @@ export const Profile = () => {
                 </p>
               </div>
             </div>
-            {!isDesktopOrLaptop && <ThemeSwitcher />}
+            {!isDesktopOrLaptop && <ThemeToggle />}
           </div>
 
           <p className="mt-2 text-start text-sm text-muted-foreground italic">
