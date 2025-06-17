@@ -38,6 +38,10 @@ export const AboutMe = () => {
           support. Strong team player working well in Agile environments to
           deliver quality work.
         </p>
+        <p className="leading-relaxed mt-4">
+          I have experience scaling applications to support multiple countries
+          and languages, including a project deployed across 11 countries.
+        </p>
       </CardContent>
     </Card>
   );
