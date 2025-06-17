@@ -10,8 +10,14 @@ const categorizedSkills = {
     "CSS",
     "React.js",
     "Next.js",
+    "Vue",
   ],
-  "State Management": ["Zustand", "Redux", "TanStack Query (React Query)"],
+  "State Management": [
+    "Zustand",
+    "Redux",
+    "TanStack Query (React Query)",
+    "Pinia",
+  ],
   "UI & Styling": ["Tailwind CSS", "Ant Design", "Material UI", "shadcn/ui"],
   "Utilities & Libraries": [
     "React Router",
