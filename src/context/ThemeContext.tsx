@@ -40,7 +40,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       setTheme(storedTheme);
     } else {
       // const systemTheme = getSystemTheme();
-      const systemTheme = "dark";
+      const systemTheme = "light";
       setTheme(systemTheme);
       window.localStorage.setItem("x-theme", systemTheme);
     }
