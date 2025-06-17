@@ -13,7 +13,7 @@ export const projects = [
     title: "Zentry Clone",
     description:
       "A visually polished landing page inspired by the Zentry NFT game ecosystem using Nextjs & GSAP.",
-    tech: "NextJS",
+    tech: "React",
     link: "https://zentry.duy.onl/",
     source_code: "https://github.com/duythenights/Zentry-clone",
     image: "/projects/zentry.webp",

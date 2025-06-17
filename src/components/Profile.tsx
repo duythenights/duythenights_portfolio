@@ -3,7 +3,7 @@ import useMediaQuery from "@/hook/useMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaRegNewspaper } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -22,7 +22,12 @@ const socials = [
     linkLabel: "duythenights",
     icon: <FaLinkedin className="size-4" />,
   },
-  // TODO: Add more socials here
+  {
+    name: "Blog",
+    link: "https://dev.to/duythenight", // Change this URL to your actual blog
+    linkLabel: "Blog",
+    icon: <FaRegNewspaper className="size-4" />, // Or another relevant icon
+  },
 ];
 
 export const Profile = () => {
