@@ -27,11 +27,21 @@ export const projects = [
     source_code: "https://github.com/duythenights/casecobra",
     image: "/projects/casecobra.webp",
   },
+  {
+    title: "Designer's Portfolio",
+    description:
+      "A portfolio page for designer with beautiful animations using GSAP, Vue, Vite",
+    tech: "Vue",
+    link: "https://design.duy.onl/",
+    source_code: "https://github.com/duythenights/ui-portfolio-design",
+    image: "/projects/designer.webp",
+  },
 ];
 
 const techColors = {
   React: "bg-blue-500",
   NextJS: "bg-gray-500",
+  Vue: "bg-green-500",
 };
 
 export const Projects = () => {
