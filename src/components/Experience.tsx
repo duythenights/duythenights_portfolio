@@ -18,6 +18,7 @@ const jobs = [
       "Integrated <span class='font-semibold'>third-party libraries</span> and <span class='font-semibold'>OAuth</span> (Google, Microsoft).",
       "Collaborated in <span class='font-semibold'>Agile teams</span> and participated in <span class='font-semibold'>sprint rituals</span>.",
       "Worked with <span class='font-semibold'>Product Owners</span> to define and prioritize <span class='font-semibold'>features</span>.",
+      "Implemented a<span class='font-semibold'> real-time chat application</span> module.",
       "Automated <span class='font-semibold'>deployments</span> via <span class='font-semibold'>GitLab CI/CD pipelines</span>.",
       "Managed <span class='font-semibold'>multiple projects</span> under <span class='font-semibold'>tight deadlines</span>.",
     ],
