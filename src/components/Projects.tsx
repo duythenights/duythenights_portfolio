@@ -36,6 +36,15 @@ export const projects = [
     source_code: "https://github.com/duythenights/ui-portfolio-design",
     image: "/projects/designer.webp",
   },
+  {
+    title: "IShowspeedType",
+    description:
+      "A practice typing website inspired by Ishowspeed & monkeytype built with Vue, Vite",
+    tech: "Vue",
+    link: "https://typing.duy.onl/",
+    source_code: "https://github.com/duythenights/ishowspeedtype",
+    image: "/projects/typing.webp",
+  },
 ];
 
 const techColors = {
