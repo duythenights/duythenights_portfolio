@@ -23,24 +23,35 @@ export const AboutMe = () => {
       </CardHeader>
       <CardContent className="text-customBlack dark:text-[#fafafa]">
         <p className="leading-relaxed">
-          Hello, World! I am <span>Duy</span>, a Frontend Developer passionate
-          about building high-performance, user-centric web applications with
-          seamless functionality and engaging interfaces.
+          Hello, World! I am <span className="font-bold">Duy</span>, a{" "}
+          <span className="font-bold">Frontend Developer </span>passionate about
+          building high-performance, user-centric web applications with seamless
+          functionality and engaging interfaces.
         </p>
         <p className="leading-relaxed mt-4">
-          With 2 years of experience building and enhancing CMS, CRM, and admin
-          panel systems. Proficient in React, Next.js, TypeScript, API
-          integration, real-time data handling, and performance optimization.
+          With <span className="font-bold"> 2 years of experience</span>{" "}
+          building and enhancing
+          <span className="font-bold"> CMS, CRM </span>, and
+          <span className="font-bold"> admin panel systems </span>. Proficient
+          in <span className="font-bold">React, Next.js, TypeScript</span>, API
+          integration,{" "}
+          <span className="font-bold">real-time data handling </span>, and{" "}
+          <span className="font-bold">performance optimization</span>.
         </p>
         <p className="leading-relaxed mt-4">
-          Experienced in creating smooth animations using GSAP to enhance user
-          experience. Able to develop responsive microsites optimized for mobile
-          support. Strong team player working well in Agile environments to
-          deliver quality work.
+          Experienced in{" "}
+          <span className="font-bold"> creating smooth animations</span> using
+          GSAP to enhance user experience. Able to{" "}
+          <span className="font-bold"> develop responsive microsites</span>{" "}
+          optimized for mobile support. Strong team player{" "}
+          <span className="font-bold">working well in Agile environments</span>{" "}
+          to deliver quality work.
         </p>
         <p className="leading-relaxed mt-4">
-          I have experience scaling applications to support multiple countries
-          and languages, including a project deployed across 11 countries.
+          I have experience
+          <span className="font-bold"> scaling applications</span> to support
+          <span className="font-bold"> multiple countries and languages</span>,
+          including a project deployed across 11 countries.
         </p>
       </CardContent>
     </Card>
