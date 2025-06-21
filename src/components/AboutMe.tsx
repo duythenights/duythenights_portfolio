@@ -28,9 +28,9 @@ export const AboutMe = () => {
           seamless functionality and engaging interfaces.
         </p>
         <p className="leading-relaxed mt-4">
-          With 2 years of experience building and improving CMS, CRM, and admin
-          panel systems. Skilled in React, Next.js, TypeScript, API integration,
-          and performance optimization.
+          With 2 years of experience building and enhancing CMS, CRM, and admin
+          panel systems. Proficient in React, Next.js, TypeScript, API
+          integration, real-time data handling, and performance optimization.
         </p>
         <p className="leading-relaxed mt-4">
           Experienced in creating smooth animations using GSAP to enhance user
