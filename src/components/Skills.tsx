@@ -1,60 +1,41 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-// Categorized skills
-const categorizedSkills = {
-  "Languages & Frameworks": [
-    "JavaScript",
+const categorizedSkills: Record<string, string[]> = {
+  "Core Tech": [
+    "JavaScript (ES6+)",
     "TypeScript",
-    "HTML",
-    "CSS",
-    "React.js",
+    "React",
     "Next.js",
-    "Vue",
+    "TanStack Query",
   ],
-  "State Management": [
-    "Zustand",
-    "Redux",
-    "TanStack Query (React Query)",
-    "Pinia",
+  Architecture: [
+    "Monorepo (Turborepo)",
+    "Micro-frontends",
+    "Hybrid Rendering (SSR/ISR)",
   ],
-  "UI & Styling": ["Tailwind CSS", "Ant Design", "Material UI", "shadcn/ui"],
-  "Utilities & Libraries": [
-    "React Router",
-    "Axios",
-    "i18n",
-    "react-oauth/google",
-    "azure/msal-react",
-    "Firebase (FCM)",
-    "Recharts",
-    "DnD",
-    "GSAP",
+  "Payment & Security": [
+    "PCI DSS Compliance",
+    "3D-Secure",
+    "Stripe/Airwallex",
+    "WebSocket/SSE",
+    "reCAPTCHA",
+    "Cloudflare Turnstile",
   ],
-  "Testing & QA": ["Cypress", "Jest", "React Testing Library (RTL)"],
-  "Tools & Platforms": [
-    "Windows",
-    "Linux",
-    "Git",
-    "GitHub",
-    "GitLab",
+  "Infrastructure & Testing": [
+    "GitHub CI/CD",
+    "PM2",
     "Docker",
-    "AWS (EC2)",
-    "Azure (SSO)",
-    "VSCode",
-    "Figma",
+    "Git",
+    "Jest/Cypress",
   ],
-  "Practices & Concepts": [
-    "Agile (Scrum)",
+  "UI & Performance": [
+    "Tailwind CSS",
     "Core Web Vitals",
-    "SEO",
-    "Web Workers",
-    "Service Workers",
-    "Websocket",
-    "Multilingual (i18n)",
-    "FCM",
-    "Microsite",
-    "Google Analytics",
+    "GSAP",
+    "Pixel-perfect Implementation",
   ],
+  Languages: ["English (Professional Technical)"],
 };
 
 export const Skills = () => {
@@ -66,7 +47,9 @@ export const Skills = () => {
       <CardContent className="space-y-5">
         {Object.entries(categorizedSkills).map(([category, skills]) => (
           <div key={category}>
-            <h3 className="text-sm font-medium text-gray-700">{category}:</h3>
+            <h3 className="text-sm font-medium text-muted-foreground dark:text-gray-300">
+              {category}
+            </h3>
             <div className="flex flex-wrap gap-2 mt-2">
               {skills.map((skill, i) => (
                 <Badge

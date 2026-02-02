@@ -3,24 +3,43 @@ import { CalendarDays, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const jobs = [
+interface Job {
+  role: string;
+  company: string;
+  location?: string;
+  logo: string;
+  duration: string;
+  description: string[];
+  link: string;
+}
+
+const jobs: Job[] = [
   {
-    role: "Intern, Fresher & Junior Frontend Developer",
-    company: "ESTUARY JOINT STOCK COMPANY.",
-    logo: "/est.png",
-    duration: "05/2023 - Present",
+    role: "Frontend Developer (Junior → Middle)",
+    company: "BIN Corporation Group",
+    location: "District 7, HCMC",
+    logo: "/bin.svg",
+    duration: "July 2023 – Present",
     description: [
-      "Built and maintained <span class='font-semibold'>web apps</span> using <span class='font-semibold'>React.js</span>, <span class='font-semibold'>Next.js</span>, and <span class='font-semibold'>Vite</span>.",
-      "Migrated from <span class='font-semibold'>Webpack</span> to <span class='font-semibold'>Vite</span>, boosting <span class='font-semibold'>startup</span> and <span class='font-semibold'>HMR</span> speed by ~70%.",
-      "Upgraded codebase to <span class='font-semibold'>React 18</span> for <span class='font-semibold'>performance</span> and <span class='font-semibold'>developer experience</span> improvements.",
-      "Developed <span class='font-semibold'>scalable</span>, <span class='font-semibold'>responsive UIs</span> with <span class='font-semibold'>multilingual (i18n)</span> support.",
-      "Used <span class='font-semibold'>Zustand</span> and <span class='font-semibold'>TanStack Query</span> for efficient <span class='font-semibold'>state</span> and <span class='font-semibold'>data management</span>.",
-      "Integrated <span class='font-semibold'>third-party libraries</span> and <span class='font-semibold'>OAuth</span> (Google, Microsoft).",
-      "Collaborated in <span class='font-semibold'>Agile teams</span> and participated in <span class='font-semibold'>sprint rituals</span>.",
-      "Worked with <span class='font-semibold'>Product Owners</span> to define and prioritize <span class='font-semibold'>features</span>.",
-      "Implemented a<span class='font-semibold'> real-time chat application</span> module.",
-      "Automated <span class='font-semibold'>deployments</span> via <span class='font-semibold'>GitLab CI/CD pipelines</span>.",
-      "Managed <span class='font-semibold'>multiple projects</span> under <span class='font-semibold'>tight deadlines</span>.",
+      "Migrated 30+ standalone repositories into a unified <span class='font-semibold'>Monorepo</span> (Turborepo & Next.js Multizone), reducing maintenance overhead by ~90% and ensuring 100% security patch consistency.",
+      "Enhanced SEO and UX via <span class='font-semibold'>hybrid rendering</span> (SSR, ISR) and Core Web Vitals optimization (LCP, FCP, CLS), improving Google PageSpeed scores from 30+ to 98+.",
+      "Delivered pixel-perfect, responsive interfaces for high-traffic platforms serving <span class='font-semibold'>5M+ global monthly visitors</span>, ensuring seamless cross-device compatibility.",
+      "Managed a global payment ecosystem (Amex, Airwallex, Google Pay) generating <span class='font-semibold'>$2M+ monthly revenue</span>, implementing PCI DSS and 3D-Secure for secure, high-volume transactions.",
+      "Collaborated with Marketing to implement GTM DataLayer, JSON-LD, and SEO Metadata; integrated Cookie Consent and RDP (Restricted Data Processing) for legal compliance in US and EU markets.",
+      "Automated deployments via <span class='font-semibold'>GitHub CI/CD</span>; managed PM2 processes for high availability and zero-downtime updates.",
+    ],
+    link: "https://www.bincorporation.com/",
+  },
+  {
+    role: "Frontend Developer Intern / Fresher",
+    company: "Estuary Solutions JSC",
+    location: "District 3, HCMC",
+    logo: "/est.png",
+    duration: "May 2022 – July 2023",
+    description: [
+      "Developed a <span class='font-semibold'>CRM platform</span> serving 30,000+ monthly active users, integrating WebSockets for real-time messaging and instant live notifications.",
+      "Crafted high-performance landing pages with complex <span class='font-semibold'>GSAP animations</span>, delivering engaging and fluid user experiences.",
+      "Integrated <span class='font-semibold'>Stripe Payment</span> gateway for a large-scale online event platform.",
     ],
     link: "https://estuary.solutions/",
   },
@@ -46,7 +65,10 @@ export const Experience = () => {
                   />
                   <div>
                     <h3 className="font-semibold">{j.role}</h3>
-                    <p className="text-sm text-muted-foreground">{j.company}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {j.company}
+                      {j.location ? ` · ${j.location}` : ""}
+                    </p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2 flex items-center">
@@ -63,14 +85,16 @@ export const Experience = () => {
                       />
                     ))}
                 </ul>
-                <Link
-                  href={j.link}
-                  target="_blank"
-                  className="text-sm flex items-center justify-left text-blue-500 hover:underline mt-2"
-                >
-                  Visit Company Site
-                  <ExternalLink className="size-4 ml-2" />
-                </Link>
+                {j.link !== "#" && (
+                  <Link
+                    href={j.link}
+                    target="_blank"
+                    className="text-sm flex items-center justify-left text-blue-500 hover:underline mt-2"
+                  >
+                    Visit Company Site
+                    <ExternalLink className="size-4 ml-2" />
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

@@ -3,7 +3,8 @@ import useMediaQuery from "@/hook/useMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin, FaRegNewspaper } from "react-icons/fa";
+import { FaGithub, FaRegNewspaper } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,16 +18,16 @@ const socials = [
     icon: <FaGithub className="size-4" />,
   },
   {
-    name: "Linkedin",
-    link: "https://www.linkedin.com/in/duythenights/",
+    name: "LeetCode",
+    link: "https://leetcode.com/u/duythenights/",
     linkLabel: "duythenights",
-    icon: <FaLinkedin className="size-4" />,
+    icon: <SiLeetcode className="size-4" />,
   },
   {
     name: "Blog",
-    link: "https://dev.to/duythenight", // Change this URL to your actual blog
+    link: "https://dev.to/duythenight",
     linkLabel: "Blog",
-    icon: <FaRegNewspaper className="size-4" />, // Or another relevant icon
+    icon: <FaRegNewspaper className="size-4" />,
   },
 ];
 
@@ -52,7 +53,7 @@ export const Profile = () => {
                   Dinh Hoang Duy
                 </h1>
                 <p className="text-sm md:text-base text-muted-foreground">
-                  Frontend Developer
+                  Mid-level Frontend Developer
                 </p>
               </div>
             </div>
