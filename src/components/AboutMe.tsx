@@ -25,12 +25,11 @@ export const AboutMe = () => {
         <p className="leading-relaxed">
           Hello, World! I am <span className="font-bold">Duy</span>, a{" "}
           <span className="font-bold">Mid-level Frontend Developer</span> with{" "}
-          <span className="font-bold">3.5+ years</span> of experience building
+          <span className="font-bold">4+ years</span> of experience building
           high-performance web applications. Proven track record of driving
           business growth, including a{" "}
-          <span className="font-bold">~300% revenue increase</span> (from $300K
-          to $1M/month) by spearheading a successful migration from legacy PHP
-          to Next.js.
+          <span className="font-bold">~200% revenue increase</span> through
+          Next.js optimization, SEO and conversion rate improvements
         </p>
         <p className="leading-relaxed mt-4">
           Expert in{" "}

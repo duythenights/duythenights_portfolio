@@ -19,11 +19,11 @@ const jobs: Job[] = [
     company: "BIN Corporation Group",
     location: "District 7, HCMC",
     logo: "/bin.svg",
-    duration: "July 2023 – Present",
+    duration: "October 2023 – Present",
     description: [
       "Migrated 30+ standalone repositories into a unified <span class='font-semibold'>Monorepo</span> (Turborepo & Next.js Multizone), reducing maintenance overhead by ~90% and ensuring 100% security patch consistency.",
       "Enhanced SEO and UX via <span class='font-semibold'>hybrid rendering</span> (SSR, ISR) and Core Web Vitals optimization (LCP, FCP, CLS), improving Google PageSpeed scores from 30+ to 98+.",
-      "Delivered pixel-perfect, responsive interfaces for high-traffic platforms serving <span class='font-semibold'>5M+ global monthly visitors</span>, ensuring seamless cross-device compatibility.",
+      "Delivered pixel-perfect, responsive interfaces for high-traffic platforms serving <span class='font-semibold'>3M+ global monthly visitors</span>, ensuring seamless cross-device compatibility.",
       "Managed a global payment ecosystem (Amex, Airwallex, Google Pay) generating <span class='font-semibold'>$2M+ monthly revenue</span>, implementing PCI DSS and 3D-Secure for secure, high-volume transactions.",
       "Collaborated with Marketing to implement GTM DataLayer, JSON-LD, and SEO Metadata; integrated Cookie Consent and RDP (Restricted Data Processing) for legal compliance in US and EU markets.",
       "Automated deployments via <span class='font-semibold'>GitHub CI/CD</span>; managed PM2 processes for high availability and zero-downtime updates.",
@@ -35,7 +35,7 @@ const jobs: Job[] = [
     company: "Estuary Solutions JSC",
     location: "District 3, HCMC",
     logo: "/est.png",
-    duration: "May 2022 – July 2023",
+    duration: "March 2022 – September 2023",
     description: [
       "Developed a <span class='font-semibold'>CRM platform</span> serving 30,000+ monthly active users, integrating WebSockets for real-time messaging and instant live notifications.",
       "Crafted high-performance landing pages with complex <span class='font-semibold'>GSAP animations</span>, delivering engaging and fluid user experiences.",
