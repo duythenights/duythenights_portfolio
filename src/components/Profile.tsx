@@ -68,7 +68,7 @@ export const Profile = () => {
             {/* TODO: Add resume */}
             {/* TODO: Add link to schedule a call with you using Calendly or Cal */}
             <Link
-              href="/Dinh Hoang Duy - Frontend Developer.pdf"
+              href="mailto:duythenights@gmail.com"
               target="_blank"
               className="font-semibold uppercase"
             >
