@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Invoices App",
+    "description": "Full-stack invoice management system with status tracking, payment reminders, and dashboard analytics.",
+    "category": "Frontend & Backend",
+    "tags": ["React", "Node Js", "CSS3"],
+    "techIcons": ["React", "JavaScript", "CSS3"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=Invoices+App",
+    "link": "#"
+  },
+  {
+    "title": "Pediclick Website",
+    "description": "Landing page for Pediclick delivery platform - simplifies order management for businesses.",
+    "category": "Frontend & Backend",
+    "tags": ["CSS3", "Docker", "Node Js", "Python"],
+    "techIcons": ["CSS3", "Docker", "Node.js", "Python"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=Pediclick+Website",
+    "link": "#"
+  },
+  {
+    "title": "Pediclick E-commerce",
+    "description": "E-commerce platform for fresh produce and groceries with real-time inventory.",
+    "category": "Frontend & Backend",
+    "tags": ["HTML 5", "Python", "JavaScript", "CSS3"],
+    "techIcons": ["HTML5", "Python", "JavaScript", "CSS3"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=Pediclick+E-commerce",
+    "link": "#"
+  },
+  {
+    "title": "E-shopAdmin: Simplify E-commerce Management",
+    "description": "Admin dashboard for e-commerce with product analytics, category management, and sales insights.",
+    "category": "Frontend & Backend",
+    "tags": ["Docker", "CSS3", "HTML 5", "Node Js", "React"],
+    "techIcons": ["Docker", "CSS3", "HTML5", "Node.js", "React"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=E-shopAdmin",
+    "link": "#"
+  },
+  {
+    "title": "Workout App",
+    "description": "Fitness and rehabilitation app with workout plans, meal tracking, and progress monitoring.",
+    "category": "Frontend & Backend",
+    "tags": ["HTML 5", "Docker", "Node Js", "React", "Python", "JavaScript", "CSS3"],
+    "techIcons": ["HTML5", "Docker", "Node.js", "React", "Python", "JavaScript", "CSS3"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=Workout+App",
+    "link": "#"
+  },
+  {
+    "title": "Google Translate Clone",
+    "description": "Translation app with multi-language support, text-to-speech, and language detection.",
+    "category": "Frontend & Backend",
+    "tags": ["CSS3", "Python", "Node Js", "JavaScript", "Docker", "HTML 5", "React"],
+    "techIcons": ["CSS3", "Python", "Node.js", "JavaScript", "Docker", "HTML5", "React"],
+    "imageUrl": "https://placehold.co/400x250/f9f9f9/6b7280?text=Translate+Clone",
+    "link": "#"
+  }
+]

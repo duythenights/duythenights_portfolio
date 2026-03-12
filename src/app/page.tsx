@@ -1,5 +1,6 @@
 import { AboutMe } from "@/components/AboutMe";
 import { Experience } from "@/components/Experience";
+import { PersonalProjects } from "@/components/PersonalProjects";
 import { Sidebar } from "@/components/Sidebar";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
           <main className="md:col-span-2">
             <AboutMe />
             <Experience />
+            <PersonalProjects />
           </main>
         </div>
       </div>
